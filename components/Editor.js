@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import codeMirrorStyles from '../css/codemirror';
 import monokaiStyles from '../css/monokai';
 
-export default class extends Component {
+export default class Editor extends Component {
   static propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
@@ -73,7 +73,12 @@ export default class extends Component {
             padding-top: 6px;
           }
         `}</style>
-        <style jsx global>{`${codeMirrorStyles}\n${monokaiStyles}`}</style>
+        <style jsx global>
+          {codeMirrorStyles}
+        </style>
+        <style jsx global>
+          {monokaiStyles}
+        </style>
       </div>
     );
   }
