@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Router from 'next/router';
 import Error from '../components/Error';
 import Layout from '../components/Layout';
 import Controls from '../components/Controls';
@@ -7,7 +8,7 @@ import Output from '../components/Output';
 import codeExamples from '../lib/code-examples';
 import { createSnippet, getSnippet, shareSnippet } from '../api/snippets';
 
-export default class extends Component {
+export default class Index extends Component {
   static async getInitialProps({ query, res }) {
     const { snippetId } = query;
 
@@ -29,6 +30,8 @@ export default class extends Component {
             errorStatusCode: 404
           };
         });
+    } else if (typeof document !== 'undefined') {
+      Router.push('/examples/basic-interval');
     }
 
     // came from /examples/exampleId
