@@ -1,9 +1,9 @@
 import Error from '../components/Error';
 
-const Error404Component = () => {
+const error404 = () => {
   const statusCode = 404;
 
   return <Error statusCode={statusCode} />;
 };
 
-export default Error404Component;
+export default error404;
