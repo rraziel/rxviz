@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import Router from 'next/router';
 import Error from '../components/Error';
 import Layout from '../components/Layout';
 import Controls from '../components/Controls';
@@ -30,8 +29,6 @@ export default class Index extends Component {
             errorStatusCode: 404
           };
         });
-    } else if (typeof document !== 'undefined') {
-      Router.push('/examples/basic-interval');
     }
 
     // came from /examples/exampleId
