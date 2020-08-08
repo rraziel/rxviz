@@ -9,7 +9,12 @@ import { createSnippet, getSnippet, shareSnippet } from '../api/snippets';
 
 export default class Index extends Component {
   static async getInitialProps({ query, res }) {
-    const { snippetId } = query;
+    let { snippetId } = query;
+    const { exampleId } = query;
+
+    if (!snippetId && !exampleId) {
+      snippetId = 'basic-interval';
+    }
 
     if (snippetId) {
       // came from /v/hashid
@@ -32,8 +37,6 @@ export default class Index extends Component {
     }
 
     // came from /examples/exampleId
-    const { exampleId } = query;
-
     if (exampleId && codeExamples[exampleId]) {
       const { code, timeWindow } = codeExamples[exampleId];
 
